@@ -18,9 +18,9 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'ESDL MapEditor'
-copyright = '2021, Edwin Matthijssen, Ewoud Werkman, Lars de Ridder, Thomas Nijman'
-author = 'Edwin Matthijssen, Ewoud Werkman, Lars de Ridder, Thomas Nijman'
+project = 'ESSIM'
+copyright = '2021, Arun Subramanian, Selma Causevic, Edwin Matthijssen'
+author = 'Arun Subramanian, Selma Causevic, Edwin Matthijssen'
 
 
 # -- General configuration ---------------------------------------------------
