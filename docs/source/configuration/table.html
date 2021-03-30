@@ -1,0 +1,283 @@
+<html>
+   <style>
+      table, th, td {
+      border: 0.5px solid black;
+      }
+   </style>
+   <body>
+      <table>
+         <tr>
+            <th>ESDL asset</th>
+            <th>Mode of Operation</th>
+            <th>Properties to Define</th>
+            <th>Definition</th>
+            <th>Default</th>
+            <th>Behaviour in ESSIM</th>
+         </tr>
+         <tr>
+            <td rowspan="6">Consumer</td>
+            <td rowspan="2">Flexible</td>
+            <td>Power</td>
+            <td>Rated input power in Watts</td>
+            <td>0</td>
+            <td>Demand will be scheduled by ESSIM between 0% and 100% of this power.</td>
+         </tr>
+         <tr>
+            <td>MarginalCosts</td>
+            <td>Value (or Profile of values) between 0 and 1</td>
+            <td>1</td>
+            <td>It determines a priority in fulfilment of demand among consumers; A consumer with higher marginal costs has a higher priority over others.</td>
+         </tr>
+         <tr>
+            <td>Inflexible</td>
+            <td>Profile</td>
+            <td>Demand Profile</td>
+            <td>N/A</td>
+            <td>One of DateTimeProfile, SingleValueProfile or InfluxDBProfile containing a time-varying demand pattern of power or energy attached to the Input Port of the consumer.</td>
+         </tr>
+         <tr>
+            <td rowspan="3">Both</td>
+            <td>CommissioningDate</td>
+            <td>Date (and time) of commissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period before this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>DecommissioningDate</td>
+            <td>Date (and time) of decommissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period after this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>Name</td>
+            <td>Human-readable name for the asset</td>
+            <td>&lt;ESDLClass&gt;_&lt;first-4-chars-of-id&gt;</td>
+            <td>This property is used to annotate the asset in the Grafana dashboard. If not available, it will fall back to asset's ID.</td>
+         </tr>
+         <tr>
+            <td rowspan="8">Conversion</td>
+            <td rowspan="4">Flexible</td>
+            <td>Power</td>
+            <td>Rated output power in Watts</td>
+            <td>0</td>
+            <td>Conversion asset will be scheduled by ESSIM between 0% and 100% of this power.</td>
+         </tr>
+         <tr>
+            <td>MarginalCosts</td>
+            <td>Value (or Profile of values) between 0 and 1</td>
+            <td>0.5</td>
+            <td>Determines a priority in fulfilment of demand among consumers (on the Input side of Conversion) or a priority in scheduling of producers (on the Output side of Conversion).<br>A producer with lower marginal costs and a consumer with higher marginal costs have a higher priority over others.</td>
+         </tr>
+         <tr>
+            <td>Efficiency</td>
+            <td>Value between 0 and 1</td>
+            <td>0.6 (60%)</td>
+            <td>Rated efficiency of the conversion asset in converting input energy carrier to output energy carrier.</td>
+         </tr>
+         <tr>
+            <td>ControlStrategy</td>
+            <td>Strategy to operate this asset</td>
+            <td>N/A</td>
+            <td>One of either “DrivenByDemand” or “DrivenBySupply” designated with the appropriate port.
+               <br>
+               If “DrivenByDemand” is chosen, then an Output Port must be attached to it. Then this conversion asset will attempt to fulfil the demand placed for the energy carrier at this output port by being a flexible producer. The MarginalCosts determine the priority of this asset while competing with other producers in the network.
+               <br>
+               If “DrivenBySupply” is chosen, then an Input Port must be attached to it. Then this conversion asset will attempt to consume the supply of energy carrier placed at this input port by being a flexible consumer. The MarginalCosts determine the priority of this asset while competing with other consumers in the network.
+            </td>
+         </tr>
+         <tr>
+            <td>Inflexible</td>
+            <td>ControlStrategy</td>
+            <td>Strategy to operate this asset</td>
+            <td>N/A</td>
+            <td>Set to “DrivenByProfile” and attach one of DateTimeProfile, SingleValueProfile or InfluxDBProfile containing a time-varying demand/production pattern of power or energy to it.</td>
+         </tr>
+         <tr>
+            <td rowspan="3">Both</td>
+            <td>CommissioningDate</td>
+            <td>Date (and time) of commissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period before this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>DecommissioningDate</td>
+            <td>Date (and time) of decommissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period after this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>Name</td>
+            <td>Human-readable name for the asset</td>
+            <td>&lt;ESDLClass&gt;_&lt;first-4-chars-of-id&gt;</td>
+            <td>This property is used to annotate the asset in the Grafana dashboard. If not available, it will fall back to asset's ID.</td>
+         </tr>
+         <tr>
+            <td rowspan="2">Heat Pump
+               <br>
+               <br>(Heat Pump is a Conversion asset. So all properties set for a Conversion asset apply to it as well. Only specific properties will be mentioned in this table)
+            </td>
+            <td rowspan="2">Both (Flexible and Inflexible)</td>
+            <td>COP</td>
+            <td>Coefficient of performance of the heat pump</td>
+            <td>3.5</td>
+            <td>This is used in computing the energy input/output at the various ports of the heat pump like so:
+               <br>
+               <br>COP = HeatOut/ElecIn
+               <br>HeatOut = ElecIn + HeatIn
+               <br>
+               <br>PS: Efficiency parameter of a heat pump is ignored
+            </td>
+         </tr>
+         <tr>
+            <td>Carriers</td>
+            <td>Energy carriers supported by this asset</td>
+            <td>N/A</td>
+            <td>Heat pump currently supports only these commodities:</td>
+         </tr>
+         <tr>
+            <td rowspan="3">Co-generation
+               <br>
+               <br>(Co-generation is a Conversion asset. So all properties set for a Conversion asset apply to it as well. Only specific properties will be mentioned in this table)
+               <br>
+               <br>PS: Only a Heat-Electricity co-generation plant is currently supported
+            </td>
+            <td rowspan="3">Both (Flexible and Inflexible)</td>
+            <td>HeatEfficiency</td>
+            <td>Value between 0 and 1</td>
+            <td>0.35</td>
+            <td>Efficiency of heat production process.</td>
+         </tr>
+         <tr>
+            <td>ElectricalEfficiency</td>
+            <td>Value between 0 and 1</td>
+            <td>0.55</td>
+            <td>Efficiency of electricity production process.</td>
+         </tr>
+         <tr>
+            <td>Carriers</td>
+            <td>Energy carriers supported by this asset</td>
+            <td>N/A</td>
+            <td>Co-generation currently supports only these output commodities:</td>
+         </tr>
+         <tr>
+            <td rowspan="7">Producer</td>
+            <td rowspan="3">Flexible</td>
+            <td>Power</td>
+            <td>Rated input power in Watts</td>
+            <td>0</td>
+            <td>Production will be scheduled by ESSIM between 0% and 100% of this power.</td>
+         </tr>
+         <tr>
+            <td>MarginalCosts</td>
+            <td>Value (or Profile of values) between 0 and 1</td>
+            <td>0.5</td>
+            <td>It determines a priority in fulfilment of demand among consumers; A producer with lower marginal costs has a higher priority over others.</td>
+         </tr>
+         <tr>
+            <td>ControlStrategy</td>
+            <td>Strategy to operate this asset</td>
+            <td>N/A</td>
+            <td>A producer may be designated with a CurtailmentStrategy with a MaxPower attribute. Then, the producer output is limited to MaxPower.</td>
+         </tr>
+         <tr>
+            <td>Inflexible</td>
+            <td>Profile</td>
+            <td>Production Profile</td>
+            <td>N/A</td>
+            <td>One of DateTimeProfile, SingleValueProfile or InfluxDBProfile containing a time-varying demand pattern of power or energy attached to the Output Port of the producer.</td>
+         </tr>
+         <tr>
+            <td rowspan="3">Both</td>
+            <td>CommissioningDate</td>
+            <td>Date (and time) of commissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period before this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>DecommissioningDate</td>
+            <td>Date (and time) of decommissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period after this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>Name</td>
+            <td>Human-readable name for the asset</td>
+            <td>&lt;ESDLClass&gt;_&lt;first-4-chars-of-id&gt;</td>
+            <td>This property is used to annotate the asset in the Grafana dashboard. If not available, it will fall back to asset's ID.</td>
+         </tr>
+         <tr>
+            <td>PV Panel
+               <br>
+               <br>(PV Panel is a Producer asset. So all properties set for a Producer asset apply to it as well. Only specific properties will be mentioned in this table)
+            </td>
+            <td>Flexible</td>
+            <td>PanelEfficiency</td>
+            <td>Value between 0 and 1</td>
+            <td>1</td>
+            <td>This efficiency factor is applied to the Power property of a PV Panel to calculate its final output.</td>
+         </tr>
+         <tr>
+            <td rowspan="9">Storage</td>
+            <td rowspan="5">Flexible</td>
+            <td>FillLevel</td>
+            <td>Value between 0 and 1</td>
+            <td>0</td>
+            <td>Initial fill level represented as State of Charge of the storage asset.</td>
+         </tr>
+         <tr>
+            <td>Capacity</td>
+            <td>Capacity of the storage in Joules</td>
+            <td>0</td>
+            <td>Determines when the storage asset is full and cannot charge any more.</td>
+         </tr>
+         <tr>
+            <td>MaxChargeRate</td>
+            <td>Maximum charge rate of the storage in Joules/second (Watts).</td>
+            <td>0</td>
+            <td>Storage asset is flexible to charge anywhere between 0% and 100% of this rate capped at remaining storable capacity.</td>
+         </tr>
+         <tr>
+            <td>MaxDischargeRate</td>
+            <td>Maximum discharge rate of the storage in Joules/second (Watts).</td>
+            <td>0</td>
+            <td>Storage asset is flexible to discharge anywhere between 0% and 100% of this rate capped at remaining dischargable capacity.</td>
+         </tr>
+         <tr>
+            <td>ControlStrategy</td>
+            <td>Strategy to operate this asset</td>
+            <td>N/A</td>
+            <td>A storage asset may be designated with a StorageStrategy with two marginal costs defined – marginal charging costs and marginal discharging costs.
+               <br>Marginal charging costs determine the priority of this storage asset while competing with other consumers in the network.
+               <br>Marginal discharging costs determine the priority of this storage asset while competing with other producers in the network.
+               <br>Attention: Marginal charging costs should always be lesser than marginal discharging costs!
+            </td>
+         </tr>
+         <tr>
+            <td>Inflexible</td>
+            <td>Profile</td>
+            <td>Charge/Discharge profile</td>
+            <td>N/A</td>
+            <td>One of DateTimeProfile, SingleValueProfile or InfluxDBProfile containing a time-varying charge/discharge pattern of power, energy or state-of-charge attached directly to the storage. The same profile is to be used to define both charging and discharging behaviour.</td>
+         </tr>
+         <tr>
+            <td rowspan="3">Both</td>
+            <td>CommissioningDate</td>
+            <td>Date (and time) of commissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period before this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>DecommissioningDate</td>
+            <td>Date (and time) of decommissioning of asset</td>
+            <td>Disabled</td>
+            <td>For the simulation period after this date, the asset would be “disabled” and gets a “zero” allocation.</td>
+         </tr>
+         <tr>
+            <td>Name</td>
+            <td>Human-readable name for the asset</td>
+            <td>&lt;ESDLClass&gt;_&lt;first-4-chars-of-id&gt;</td>
+            <td>This property is used to annotate the asset in the Grafana dashboard. If not available, it will fall back to asset's ID.</td>
+         </tr>
+      </table>
+   </body>
+</html>

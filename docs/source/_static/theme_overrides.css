@@ -1,0 +1,19 @@
+/* override table width restrictions */
+.wy-table-responsive th {
+    vertical-align: middle;
+}
+
+.wy-table-responsive table td, .wy-table-responsive table th {
+    white-space: normal;
+    font-size: xx-small;
+}
+
+.wy-table-responsive {
+    margin-bottom: 24px;
+    max-width: 100%;
+    overflow: visible;
+}
+
+.wy-nav-content {
+	max-width: 1000px
+}
