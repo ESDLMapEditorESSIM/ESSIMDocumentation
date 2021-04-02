@@ -1,12 +1,12 @@
-# ESDLMapEditorDocs
+# ESSIMDocs
 
-Project for creating the ReadTheDocs pages for the ESDL MapEditor Documentation
+Project for creating the ReadTheDocs pages for the ESSIM Documentation
 
 The ```docs``` directory contains the documentation information
 
 ## Online documentation
 
-This documentation is hosted at: https://esdl-mapeditor-documentation.readthedocs.io/
+This documentation is hosted at: https://essimdocumentation.readthedocs.io/
 
 ## Get up to speed
 
