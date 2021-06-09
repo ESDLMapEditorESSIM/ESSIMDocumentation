@@ -17,6 +17,7 @@ Welcome to the ESSIM documentation
    basic_principles/index
    configuration/index
    modelling_flexibility/index
+   essim_api/index
    example_usecases/index
    tutorials/index
 
