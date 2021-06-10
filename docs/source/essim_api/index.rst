@@ -6,16 +6,20 @@ ESSIM API
     Whenever questions or feedback is received from end users, we're trying to update this documentation on the fly.
     So don't hesitate to contact us, whenever you run into problems.
 
+Sequence
+--------
 ESSIM provides a REST API that allows users to interact with ESSIM for starting a simulation, requesting its progress, etc. The usual sequence to invoking a simulation and interacting with it is as follows:
 
   .. figure:: ../images/APISequence.png
     :scale: 90 %
     :align: center
 
-These APIs are as follows. The paths are preceded by:
+APIs:
+-----
+
 
 /simulation
------------
+^^^^^^^^^^^
 
 * **HTTP Method**: POST
 * **Description**: Create a new simulation
@@ -73,7 +77,7 @@ These APIs are as follows. The paths are preceded by:
         * If a simulation is already running while a new one is started, HTTP status code 503 is returned with a text body ``Busy``.
    
 /simulation/<simulation-id>
----------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * **HTTP Method**: GET
 * **Description**: Retrieve meta-data of simulation run. This includes information provided by the user at the time of starting the simulation and some run-time data. This API call can be used to retrieve the dashboard URL as soon as a simulation is *CREATED*
 * **Request Body**:
@@ -125,7 +129,7 @@ These APIs are as follows. The paths are preceded by:
             }
 
 /simulation/<simulation-id>/status
-----------------------------------
+^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^^
 * **HTTP Method**: GET
 * **Description**: Retrieve status of a simulation run. This API can be used as soon as a simulation is *CREATED*
 * **Request Body**:
@@ -146,8 +150,8 @@ These APIs are as follows. The paths are preceded by:
             
     * OK (HTTP status code - 200)
         * Running
-            * *status*: RUNNING
-            * *description*: Percentage progress of the simulation as a limiting to 1.0
+            * *State*: RUNNING
+            * *Description*: Percentage progress of the simulation as a limiting to 1.0
 
               .. code-block:: json
               
@@ -156,8 +160,8 @@ These APIs are as follows. The paths are preceded by:
                     "Description": "0.7604529616724739",
                 }
         * Finished
-            * *status*: COMPLETE
-            * *description*: Time for simulation to complete
+            * *State*: COMPLETE
+            * *Description*: Time for simulation to complete
 
               .. code-block:: json
               
@@ -166,12 +170,32 @@ These APIs are as follows. The paths are preceded by:
                     "Description": "Finished in PT35.306S",
                 }
         * Error
-            * *status*: ERROR
-            * *description*: Description of the error
+            * *State*: ERROR
+            * *Description*: Description of the error
 
               .. code-block:: json
               
                 {
                     "State": "ERROR"
                     "Description": "Cannot connect to InfluxDB service at [http://non-existing-host:8086] to query profile with id 3499a337-1785-4601-8098-3c46b6d42b7c. Please verify the URL!",
-                }           
+                }
+
+Code Example
+------------
+Following is a simple code example to access the ESSIM APIs using python. Before you run this example:
+
+  1. Copy the ESDL file below the python example to the same folder as the script. Adjust the name of the file in the script (line 21) appropriately if the name of the ESDL file is changed.
+  2. Install the necessary python libraries using ``pip install requests pytz``.
+  3. Start ESSIM following the instructions `here <https://github.com/ESDLMapEditorESSIM/docker-toolsuite#steps-to-follow>`_.
+
+Python Code:
+^^^^^^^^^^^^
+  .. literalinclude:: simulation.py
+    :linenos:
+    :language: python
+
+ESDL File (`sim.esdl`):
+^^^^^^^^^^^^^^^^^^^^^^^
+.. literalinclude:: sim.esdl
+  :language: xml
+
