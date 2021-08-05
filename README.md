@@ -6,7 +6,7 @@ The ```docs``` directory contains the documentation information
 
 ## Online documentation
 
-This documentation is hosted at: https://essimdocumentation.readthedocs.io/
+This documentation is hosted at: https://essim-documentation.readthedocs.io/
 
 ## Get up to speed
 
