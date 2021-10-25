@@ -20,6 +20,7 @@ Welcome to the ESSIM documentation
    essim_api/index
    example_usecases/index
    tutorials/index
+   essim_community_meetings/index
 
 
 Indices and tables
