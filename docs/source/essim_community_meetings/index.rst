@@ -16,13 +16,13 @@ bid curves and marginal costs and transport solvers were explained.
 
 Then we continued with the selected topics:
 
- * Using real energy market prices in ESSIM simulations
- * Support for multi-input multi-output assets
- * ESSIM KPI modules
- * CO2 calculations
- * Using the ESSIM API
- * ESSIM combined with loadflow simulations
- * Connecting external asset models to ESSIM
+* Using real energy market prices in ESSIM simulations
+* Support for multi-input multi-output assets
+* ESSIM KPI modules
+* CO2 calculations
+* Using the ESSIM API
+* ESSIM combined with loadflow simulations
+* Connecting external asset models to ESSIM
 
 This was followed up by a more in depth explanation of the current possibilities of modelling flexibility and the
 ongoing projects covering this specific topic. After some questions and discussions, we also showed some non ESSIM
@@ -30,14 +30,14 @@ related work we're doing with respect to spatial aspect of the energy transition
 
 The following ESSIM users were invited and most of them were present (in alphabetical order):
 
- * Ecorys
- * Ekwadraat (not present)
- * Engie
- * MUG Engineering
- * Saxion Hogeschool
- * Shell (not present)
- * Siemens
- * Stedin
+* Ecorys
+* Ekwadraat (not present)
+* EQUANS (formerly known as ENGIE)
+* MUG Engineering
+* Saxion University of Applied Sciences
+* Shell (not present)
+* Siemens
+* Stedin
 
 The reactions from these users were very positive. They found it a very informative meeting and were impressed by the
 flexibility and possibilities of the ESSIM tool. We agreed to organize a next community meeting in about half a year
