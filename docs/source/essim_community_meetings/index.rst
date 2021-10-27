@@ -32,7 +32,8 @@ The following ESSIM users were invited and most of them were present (in alphabe
 
 * Ecorys
 * Ekwadraat (not present)
-* EQUANS (formerly known as ENGIE)
+* ENGIE
+* EQUANS (formerly known as ENGIE Services NL)
 * MUG Engineering
 * Saxion University of Applied Sciences
 * Shell (not present)
