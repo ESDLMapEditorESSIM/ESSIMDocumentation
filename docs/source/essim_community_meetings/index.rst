@@ -11,27 +11,27 @@ To create a similar level of knowledge for all participants and to better unders
 
 Then we continued with the selected topics:
 
-- Using real energy market prices in ESSIM simulations
-- Support for multi-input multi-output assets
-- ESSIM KPI modules
-- CO2 calculations
-- Using the ESSIM API
-- ESSIM combined with loadflow simulations
-- Connecting external asset models to ESSIM
+-  Using real energy market prices in ESSIM simulations
+-  Support for multi-input multi-output assets
+-  ESSIM KPI modules
+-  CO2 calculations
+-  Using the ESSIM API
+-  ESSIM combined with loadflow simulations
+-  Connecting external asset models to ESSIM
 
 This was followed up by a more in depth explanation of the current possibilities of modelling flexibility and the ongoing projects covering this specific topic. This triggered some relevant and interesting questions from the audience, which spurred the subsequent discussion session. With some time to spare, we also took the opportunity to showcase some non ESSIM-related work we're doing with respect to the spatial aspect of the energy transition (including spatial optimization).
 
 The following ESSIM users were invited and most of them were present (in alphabetical order):
 
-- Ecorys
-- Ekwadraat (not present)
-- ENGIE
-- EQUANS (formerly known as ENGIE Services NL)
-- MUG Engineering
-- Saxion University of Applied Sciences
-- Shell (not present)
-- Siemens
-- Stedin
+-  Ecorys
+-  Ekwadraat (not present)
+-  ENGIE
+-  EQUANS (formerly known as ENGIE Services NL)
+-  MUG Engineering
+-  Saxion University of Applied Sciences
+-  Shell (not present)
+-  Siemens
+-  Stedin
 
 The reactions from the users were very positive. They found it a very informative meeting and were impressed by the flexibility and possibilities of the ESSIM tool. We agreed to organize a next community meeting in about half a year (March or April 2022).
 
