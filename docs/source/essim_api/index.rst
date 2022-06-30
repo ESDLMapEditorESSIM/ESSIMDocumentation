@@ -31,6 +31,17 @@ APIs:
     * *simulationDescription*: Human-readable description of the simulation visible in the dashboard
     * *startDate*: Start date of simulation in ISO-8601 format (``YYYY-MM-DDTHH:mm:ss±hh:mm``)
     * *user*: Name of the user running the simulation. Used to tag the name of the Grafana dashboard
+    * *csvFilesLocation*: (Optional) To export ESSIM simulation data into CSV, specify a location here
+    * *mqttURL*: (Optional) To publish ESSIM data to an MQTT bus, specify the URL to an MQTT server here
+    * *amqpURL*: (Optional) To publish ESSIM data to an AMQP bus, specify the URL to an AMQP server here
+    * *kafkaURL*: (Optional) To publish ESSIM data to an Apache Kafka server, specify the URL to the server here
+    * *nodeConfig*: (Optional) To use a remote node with ESSIM, specify the following:
+
+       *  *esdlNodeId*: The ESDL ID of the asset represented by this node
+       *  *config*: Any key-value configuration to provide this node
+       *  *mqttHost*: MQTT Host URL
+       *  *mqttPort*: MQTT Port number
+       *  *mqttTopic*: Topic to reach the ESDL Node
     
     **Example**:
 

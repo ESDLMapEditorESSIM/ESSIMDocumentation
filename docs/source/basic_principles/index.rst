@@ -11,7 +11,7 @@ Energy Assets
 ESSIM follows the ESDL principle of classifying energy system assets into Producers, Consumers, Storages, Conversions and Transports. Each asset (except for Transport assets) can either have a pre-determined behaviour (*inflexible*) programmed into it with the help of a profile, or let ESSIM calculate its energy allocation (*flexible*) based on its flexibility, some control strategy and the behaviour of other assets in its network. ESSIM contains models for each of these five classes of assets and thanks to ESDL's hierarchical data structure, model behaviour can also be inherited from parent models. E.g. With a generic Consumer behaviour implementation, all existing ESDL Consumers such as ElectricityDemand, HeatingDemand, etc. and any ESDL Consumers added in the future can be supported within ESSIM. Additionally, implemented within ESSIM are also some specific asset models that have certain peculiarities. E.g. A co-generation plant is a conversion asset with two output ports with one output effecting the other.
 
   .. figure:: ../images/ESSIM-asset-models.png
-    :scale: 40 %
+    :scale: 20 %
     :align: center
 
     All implemented asset models in ESSIM
