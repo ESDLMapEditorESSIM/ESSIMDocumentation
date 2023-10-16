@@ -902,11 +902,11 @@ steps:
 
    -  Fill level: 0.2
 
-   -  Set *StorageStrategy*
+   -  Set *StorageStrategy* (In earlier versions of this tutorial, the below marginal costs were mixed up)
 
-      -  Marginal charge costs: 0.8
+      -  Marginal charge costs: 0.2
 
-      -  Marginal discharge costs: 0.2
+      -  Marginal discharge costs: 0.8
 
 -  Connect the *Battery* to the *ElectricityNetwork*
 
