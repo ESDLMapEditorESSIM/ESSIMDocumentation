@@ -18,7 +18,7 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'ESSIM Documentation'
+project = 'ESSIM'
 copyright = '2026, Arun Subramanian, Selma Causevic, Edwin Matthijssen, Ewoud Werkman'
 author = 'Arun Subramanian, Selma Causevic, Edwin Matthijssen, Ewoud Werkman'
 
