@@ -18,9 +18,9 @@ import sphinx_rtd_theme
 
 # -- Project information -----------------------------------------------------
 
-project = 'ESSIM'
-copyright = '2021, Arun Subramanian, Selma Causevic, Edwin Matthijssen'
-author = 'Arun Subramanian, Selma Causevic, Edwin Matthijssen'
+project = 'ESSIM Documentation'
+copyright = '2026, Arun Subramanian, Selma Causevic, Edwin Matthijssen, Ewoud Werkman'
+author = 'Arun Subramanian, Selma Causevic, Edwin Matthijssen, Ewoud Werkman'
 
 
 # -- General configuration ---------------------------------------------------
